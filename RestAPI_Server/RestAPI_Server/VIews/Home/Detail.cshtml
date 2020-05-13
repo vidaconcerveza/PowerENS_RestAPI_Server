@@ -1,0 +1,40 @@
+﻿@model Chart
+@{
+    ViewData["Title"] = "Detail";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+    <title>Chart Data</title>
+</head>
+<body>
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <canvas id="chartjs-0" class="chartjs"></canvas>
+            <script>
+                
+                new Chart(document.getElementById("chartjs-0"), { "type": "line", "data": { "labels": ["-45", "-40","-35","-30","-25","-20","-15","-10","-5", "@Model.LogTime"], "datasets": [{ "label": "Energy(Khw)", "data": [@Model.Val10, @Model.Val09, @Model.Val08, @Model.Val07, @Model.Val06, @Model.Val05, @Model.Val04, @Model.Val03, @Model.Val02, @Model.Val01], "fill": false, "borderColor": "rgb(75, 192, 192)", "lineTension": 0.1 }] }, "options": {} });
+            </script>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <h3>Event Summery</h3>
+            <p>Event Time : @Model.LogTime</p>
+            <p>Event : @Model.AlarmMessage</p>
+        </div>
+    </div>
+
+
+</body>
+</html>
